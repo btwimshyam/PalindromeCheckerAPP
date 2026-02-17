@@ -1,20 +1,20 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    String input = "noon";
+    String input = "civic";
 
+    Queue<Character> queue = new LinkedList<>();
     Stack<Character> stack = new Stack<>();
 
-    // Push all characters
     for (char c : input.toCharArray()) {
+        queue.add(c);
         stack.push(c);
     }
 
     boolean isPalindrome = true;
 
-    // Pop and compare
-    for (char c : input.toCharArray()) {
-        if (c != stack.pop()) {
+    while (!queue.isEmpty()) {
+        if (queue.remove() != stack.pop()) {
             isPalindrome = false;
             break;
         }

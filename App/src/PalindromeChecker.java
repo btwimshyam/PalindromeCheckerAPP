@@ -1,20 +1,17 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    String input = "civic";
+    String input = "refer";
 
-    Queue<Character> queue = new LinkedList<>();
-    Stack<Character> stack = new Stack<>();
+    Deque<Character> deque = new ArrayDeque<>();
 
-    for (char c : input.toCharArray()) {
-        queue.add(c);
-        stack.push(c);
-    }
+    for (char c : input.toCharArray())
+        deque.add(c);
 
     boolean isPalindrome = true;
 
-    while (!queue.isEmpty()) {
-        if (queue.remove() != stack.pop()) {
+    while (deque.size() > 1) {
+        if (deque.removeFirst() != deque.removeLast()) {
             isPalindrome = false;
             break;
         }

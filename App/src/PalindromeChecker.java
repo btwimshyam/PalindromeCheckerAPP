@@ -1,22 +1,15 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+static boolean check(String s, int start, int end){
+    if(start >= end) return true;
+    if(s.charAt(start) != s.charAt(end)) return false;
+    return check(s, start+1, end-1);
+}
 void main() {
     String input = "madam";
 
-    LinkedList<Character> list = new LinkedList<>();
-
-    for (char c : input.toCharArray())
-        list.add(c);
-
-    boolean isPalindrome = true;
-
-    while (list.size() > 1) {
-        if (list.removeFirst() != list.removeLast()) {
-            isPalindrome = false;
-            break;
-        }
-    }
+    boolean result = check(input, 0, input.length() - 1);
 
     System.out.println("Input : " + input);
-    System.out.println("Is Palindrome? : " + isPalindrome);
+    System.out.println("Is Palindrome? : " + result);
 }
